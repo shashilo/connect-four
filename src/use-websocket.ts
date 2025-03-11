@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { GameContext, ActionType } from './types';
 
 // create a hook that connects to the websocket and returns the game state
-export const useWebSocket = (url = 'ws://localhost:8080/ws') => {
+export const useWebSocket = (url = 'ws://10.1.10.157:8080/ws') => {
   const [gameContext, setGameContext] = useState<GameContext>({
     gameState: {
       isGameOver: false,

@@ -4,11 +4,11 @@ import './Token.css';
 
 interface TokenProps {
     /** Token variant type */
-    variant?: 'primary' | 'secondary';
+    variant?: 'default' | 'primary' | 'secondary';
     onClick?: () => void;
 }
 
-export const Token = ({ variant = 'primary', onClick }: TokenProps) => {
+export const Token = ({ variant = 'default', onClick }: TokenProps) => {
   return (
     <div className={['token', `token--${variant}`].join(' ')} onClick={onClick}></div> 
   );

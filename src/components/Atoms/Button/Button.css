@@ -1,0 +1,30 @@
+.btn {
+  border-radius: 20px;
+  border: 3px solid var(--color-black);
+  background: var(--color-white);
+  box-shadow: 0px 10px 0px 0px var(--color-black);
+  color: var(--color-black);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  min-width: 400px;
+  min-height: 72px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-electric-violet);
+    box-shadow: 0px 10px 0px 0px var(--color-electric-violet);
+    cursor: pointer;
+  }
+}
+
+.btn--secondary {
+  background: var(--color-golden-tainoi);
+}
+
+.btn--tertiary {
+  background: var(--color-brink-pink);
+  color: var(--color-white);
+}

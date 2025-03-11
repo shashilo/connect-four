@@ -1,0 +1,9 @@
+.gameWrapper {
+    align-items: center;
+    background-color: var(--color-electric-violet);
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: center;
+    padding: 40px;
+}

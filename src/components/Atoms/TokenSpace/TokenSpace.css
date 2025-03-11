@@ -1,0 +1,6 @@
+.tokenSpace {
+    height: 90px;
+    position: relative;
+    width: 90px;
+    z-index: 2;
+}

@@ -1,13 +1,12 @@
 import './App.css'
-import { GameBoard } from './components/Atoms/GameBoard/GameBoard'
+import { GameWrapper } from './components/Page/GameWrapper'
 
 function App() {
 
   return (
     <>
       <div>
-        hello
-        <GameBoard />
+        <GameWrapper />
       </div>
 
     </>

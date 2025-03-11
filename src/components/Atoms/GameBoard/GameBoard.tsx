@@ -62,7 +62,11 @@ const board = [
         ],
       ];
 
-const buildGameBoard = (board) => {
+const buildGameBoard = (board, gameId) => {
+    const onTokenSpaceClick = ({ row, column }: TokenSpaceClick) => {
+    alert(`sendAction({ type: 'MAKE_MOVE', x: ${row}, y: ${column}, gameId: ${gameId}, playerId: 1`);
+  }
+
   return board.map((row, rowIndex) => {
     return (
       <div className="gameBoard__row" key={rowIndex}>
@@ -71,7 +75,7 @@ const buildGameBoard = (board) => {
           const tokenVariant = column === 0 ? 'default' : column === 1 ? 'primary' : 'secondary';
           return (
             <div className="gameBoard__column" key={columnIndex}>
-              <Token variant={tokenVariant} />
+              <Token variant={tokenVariant} onClick={() => onTokenSpaceClick({ row: rowIndex, column: columnIndex })} />
             </div>
           );
         })}
@@ -80,10 +84,10 @@ const buildGameBoard = (board) => {
   });
 }
 
-export const GameBoard = ({...props}) => {
+export const GameBoard = ({gameId, ...props}) => {
   return (
     <div className="gameBoard" {...props}>
-      {buildGameBoard(board)}
-    </div> 
+      {buildGameBoard(board, gameId)}
+    </div>
   );
 };

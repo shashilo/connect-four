@@ -12,20 +12,12 @@ interface TokenSpaceClick {
   column: number;
 }
 
-const onTokenSpaceClick = ({ row, column }: TokenSpaceClick) => {
-  console.log(`row: ${row}, column: ${column}`);
-}
-
-  const player1 = "player1";
-  const player2 = "player2";
-
 export const GameWrapper= ({gameContext}: {gameContext: GameContext})=> {
-  // const [gameContext, sendAction] = useWebSocket();
+  // const { sendAction } = useWebSocket();
 
-  // useEffect(() => {
-  //   sendAction({ type: 'ADD_PLAYER', player: player1 });
-  //   sendAction({ type: 'ADD_PLAYER', player: player2 });
-  // }, [player1, player2]);
+  const onTokenSpaceClick = ({ row, column }: TokenSpaceClick) => {
+    alert(`sendAction({ type: 'MAKE_MOVE', x: ${row}, y: ${column}, gameId: some-game-id, playerId: ${gameContext.gameState.players[0].playerId} })`);
+  }
 
   return (
     <div className="gameWrapper">

@@ -9,15 +9,16 @@ function App() {
   const { gameContext, sendAction } = useWebSocket();
 
   const startGame = () => {
-    sendAction({ type: 'START_GAME', gameId: `game-${Math.floor(Math.random() * 1000000) + 1}` });
-    sendAction({ type: 'JOIN_GAME', gameId: `game-${Math.floor(Math.random() * 1000000) + 1}`, playerName: 'player1' });
-    sendAction({ type: 'JOIN_GAME', gameId: `game-${Math.floor(Math.random() * 1000000) + 1}`, playerName: 'player2'});
+    const gameId = `game-${Math.floor(Math.random() * 1000000) + 1}`;
+    sendAction({ type: 'START_GAME', gameId });
+    sendAction({ type: 'JOIN_GAME', gameId, playerName: 'player1' });
+    sendAction({ type: 'JOIN_GAME', gameId, playerName: 'player2'});
   }
 
   return (
     <>
       <div className='grid gap-8 items-center'>
-        {gameContext.gameState.board ? <><Button variant="primary" onClick={startGame} label="New Game" /><GameWrapper gameContext={gameContext} /></> : <Button variant="primary" onClick={startGame} label="Start Game" />}
+        {gameContext?.gameState?.board ? <><Button variant="primary" onClick={startGame} label="New Game" /><GameWrapper gameContext={gameContext} /></> : <Button variant="primary" onClick={startGame} label="Start Game" />}
       </div>
 
     </>

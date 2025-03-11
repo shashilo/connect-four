@@ -3,8 +3,6 @@ import { GameBoard } from './components/Atoms/GameBoard/GameBoard'
 import { useWebSocket } from './use-websocket';
 import { Button } from './components/Atoms/Button/Button';
 
-let gameId = 0;
-
 function App() {
 
   // start a new game with the useWebSocket hook
@@ -13,7 +11,7 @@ function App() {
   return (
     <>
       <div className='grid gap-8 items-center'>
-        {gameContext.gameState.board ? <><Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: `game-${++gameId}` })}label="New Game" /><GameBoard gameContext={gameContext} /></> : <Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: `game-${++gameId}` })}label="Start Game" />}
+        {gameContext.gameState.board ? <><Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: `game-${Math.floor(Math.random() * 1000000) + 1}` })}label="New Game" /><GameBoard gameContext={gameContext} /></> : <Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: `game-${Math.floor(Math.random() * 1000000) + 1}` })}label="Start Game" />}
       </div>
 
     </>

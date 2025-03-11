@@ -17,12 +17,12 @@ export const useWebSocket = (url = 'ws://localhost:8080/ws') => {
   useEffect(() => {
     const websocket = new WebSocket(url);
     websocket.onmessage = (event) => {
-      setGameContext(JSON.parse(event.data));
+      setGameContext(JSON.parse(event.data).context);
     };
     setWs(websocket);
 
     return () => {
-      websocket.close();
+      websocket?.close();
     };
   }, [url]);
 

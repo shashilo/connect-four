@@ -3,6 +3,7 @@ import { GameBoard } from './components/Atoms/GameBoard/GameBoard'
 import { useWebSocket } from './use-websocket';
 import { Button } from './components/Atoms/Button/Button';
 
+const gameId = 0;
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
   return (
     <>
       <div className='grid gap-8 items-center'>
-        <Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: 'game-557' })}label="Start Game" />
+        <Button variant="primary" onClick={() => sendAction({ type: 'START_GAME', gameId: `game-${gameId}` })}label="Start Game" />
         {gameContext.gameState.board ? <GameBoard gameContext={gameContext} /> : null}
       </div>
 

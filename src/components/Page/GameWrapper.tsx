@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './GameWrapper.css';
 import { GameBoard } from '../Atoms/GameBoard/GameBoard';
 import { Player } from '../Atoms/Player/Player';
 import { TokenSpace } from '../Atoms/TokenSpace/TokenSpace';
+import { GameContext } from '../../types';
+import { useWebSocket } from '../../use-websocket';
 
 interface TokenSpaceClick {
   row: number;
@@ -14,7 +16,17 @@ const onTokenSpaceClick = ({ row, column }: TokenSpaceClick) => {
   console.log(`row: ${row}, column: ${column}`);
 }
 
-export const GameWrapper= ()=> {
+  const player1 = "player1";
+  const player2 = "player2";
+
+export const GameWrapper= ({gameContext}: {gameContext: GameContext})=> {
+  // const [gameContext, sendAction] = useWebSocket();
+
+  // useEffect(() => {
+  //   sendAction({ type: 'ADD_PLAYER', player: player1 });
+  //   sendAction({ type: 'ADD_PLAYER', player: player2 });
+  // }, [player1, player2]);
+
   return (
     <div className="gameWrapper">
       <Player variant="primary" />
@@ -77,6 +89,6 @@ export const GameWrapper= ()=> {
         </div>
       </GameBoard>
       <Player variant="secondary" />
-    </div> 
+    </div>
   );
 };

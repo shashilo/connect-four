@@ -11,7 +11,64 @@ const meta: Meta<typeof GameBoard> = {
 export default meta;
 type Story = StoryObj<typeof GameBoard>;
  
+const board = [
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+  ],
+  [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+  ],
+  [
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+  ],
+  [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+  ],
+  [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+  ],
+  [
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+  ],
+  [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+  ],
+];
 export const Default: Story = {
-  args: {
-  },
+  args: {},
 };

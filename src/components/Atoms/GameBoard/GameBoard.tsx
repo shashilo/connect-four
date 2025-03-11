@@ -2,6 +2,7 @@ import React from 'react';
 
 import './GameBoard.css';
 import { Token } from '../Token/Token';
+import { useWebSocket } from '../../../use-websocket';
 
 const board = [
         [
@@ -62,9 +63,9 @@ const board = [
         ],
       ];
 
-const buildGameBoard = (board, gameId) => {
+const buildGameBoard = (board, gameId, sendAction) => {
     const onTokenSpaceClick = ({ row, column }: TokenSpaceClick) => {
-    alert(`sendAction({ type: 'MAKE_MOVE', x: ${row}, y: ${column}, gameId: ${gameId}, playerId: 1`);
+    sendAction({ type: 'MAKE_MOVE', x: row, y: column, gameId: gameId, playerId: 1});
   }
 
   return board.map((row, rowIndex) => {
@@ -85,9 +86,11 @@ const buildGameBoard = (board, gameId) => {
 }
 
 export const GameBoard = ({gameId, ...props}) => {
+    const { sendAction } = useWebSocket();
+
   return (
     <div className="gameBoard" {...props}>
-      {buildGameBoard(board, gameId)}
+      {buildGameBoard(board, gameId, sendAction)}
     </div>
   );
 };
